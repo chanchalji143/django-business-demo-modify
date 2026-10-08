@@ -1,0 +1,282 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+Our Dentist | City Dental Hospital
+{% endblock %}
+
+
+{% block content %}
+
+<!-- PAGE HEADER -->
+
+<section class="bg-primary text-white py-5">
+
+    <div class="container py-4 text-center">
+
+        <h1 class="display-5 fw-bold">
+            Meet Our Dentist
+        </h1>
+
+        <p class="lead mb-0">
+            Professional care for your healthy smile.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- DOCTOR -->
+
+<section class="py-5">
+
+    <div class="container py-5">
+
+        <div class="row align-items-center g-5">
+
+
+            <!-- DOCTOR PHOTO -->
+
+            <div class="col-lg-5 text-center">
+
+                <div class="bg-light rounded-4 p-5">
+
+                    {% if doctor.photo %}
+
+                        <img src="{{ doctor.photo.url }}"
+                             alt="{{ doctor.name }}"
+                             class="img-fluid rounded-circle shadow-sm"
+                             style="width: 250px; height: 250px; object-fit: cover;">
+
+                    {% else %}
+
+                        <div class="bg-white rounded-circle shadow-sm mx-auto
+                                    d-flex align-items-center justify-content-center"
+                             style="width: 250px; height: 250px;">
+
+                            <i class="bi bi-person-vcard text-primary"
+                               style="font-size: 110px;">
+                            </i>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCTOR INFORMATION -->
+
+            <div class="col-lg-7">
+
+                <span class="text-primary fw-semibold">
+                    OUR DENTIST
+                </span>
+
+                <h2 class="fw-bold mt-2">
+                    {{ doctor.name }}
+                </h2>
+
+                <h5 class="text-muted">
+                    {{ doctor.qualification }}
+                </h5>
+
+                {% if doctor.specialization %}
+                    <p class="text-primary fw-semibold mt-2">
+                        {{ doctor.specialization }}
+                    </p>
+                {% endif %}
+
+
+                {% if doctor.about %}
+
+                    <p class="text-muted mt-4">
+                        {{ doctor.about }}
+                    </p>
+
+                {% endif %}
+
+
+                {% if doctor.experience %}
+
+                    <div class="mt-3">
+
+                        <span class="badge bg-primary rounded-pill px-3 py-2">
+                            {{ doctor.experience }}+ Years Experience
+                        </span>
+
+                    </div>
+
+                {% endif %}
+
+
+                <div class="row mt-4">
+
+                    <div class="col-sm-6">
+
+                        <div class="d-flex mb-3">
+
+                            <i class="bi bi-check-circle-fill
+                                      text-success me-2">
+                            </i>
+
+                            <span>
+                                Professional Dental Care
+                            </span>
+
+                        </div>
+
+                        <div class="d-flex mb-3">
+
+                            <i class="bi bi-check-circle-fill
+                                      text-success me-2">
+                            </i>
+
+                            <span>
+                                Patient Focused Treatment
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6">
+
+                        <div class="d-flex mb-3">
+
+                            <i class="bi bi-check-circle-fill
+                                      text-success me-2">
+                            </i>
+
+                            <span>
+                                Modern Dental Approach
+                            </span>
+
+                        </div>
+
+                        <div class="d-flex mb-3">
+
+                            <i class="bi bi-check-circle-fill
+                                      text-success me-2">
+                            </i>
+
+                            <span>
+                                Family Dental Care
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <a href="{% url 'appointment' %}"
+                   class="btn btn-primary rounded-pill px-4 mt-3">
+
+                    Book Appointment
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SPECIALTIES -->
+
+<section class="py-5 bg-light">
+
+    <div class="container py-4">
+
+        <div class="text-center mb-5">
+
+            <span class="text-primary fw-semibold">
+                DENTAL CARE
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                Areas of Treatment
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm p-4 text-center h-100">
+
+                    <i class="bi bi-stars text-primary display-5"></i>
+
+                    <h5 class="fw-bold mt-3">
+                        Preventive Dentistry
+                    </h5>
+
+                    <p class="text-muted">
+                        Regular dental care and preventive
+                        treatment for healthy teeth and gums.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm p-4 text-center h-100">
+
+                    <i class="bi bi-heart-pulse text-primary display-5"></i>
+
+                    <h5 class="fw-bold mt-3">
+                        Restorative Dentistry
+                    </h5>
+
+                    <p class="text-muted">
+                        Dental treatments focused on restoring
+                        oral health and function.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm p-4 text-center h-100">
+
+                    <i class="bi bi-emoji-smile text-primary display-5"></i>
+
+                    <h5 class="fw-bold mt-3">
+                        Cosmetic Dentistry
+                    </h5>
+
+                    <p class="text-muted">
+                        Treatment options designed to improve
+                        your smile and confidence.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

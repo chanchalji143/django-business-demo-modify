@@ -1,0 +1,176 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+{{ service.name }} | City Dental Hospital
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ================= SERVICE HEADER ================= -->
+
+<section class="bg-primary text-white py-5">
+
+    <div class="container py-4 text-center">
+
+        {% if service.image %}
+
+            <img src="{{ service.image.url }}"
+                 alt="{{ service.name }}"
+                 class="img-fluid rounded shadow mb-3"
+                 style="max-height: 280px;">
+
+        {% else %}
+
+            <i class="bi bi-stars display-3"></i>
+
+        {% endif %}
+
+        <h1 class="display-5 fw-bold mt-3">
+            {{ service.name }}
+        </h1>
+
+        <p class="lead">
+            {{ service.short_description }}
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICE DETAILS ================= -->
+
+<section class="py-5">
+
+    <div class="container py-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9">
+
+                <div class="card border-0 shadow-sm p-4 p-md-5">
+
+
+                    {% if service.image %}
+
+                        <div class="text-center mb-4">
+
+                            <img src="{{ service.image.url }}"
+                                 alt="{{ service.name }}"
+                                 class="img-fluid rounded"
+                                 style="max-height: 400px;">
+
+                        </div>
+
+                    {% endif %}
+
+
+                    <h2 class="fw-bold text-center">
+                        {{ service.name }}
+                    </h2>
+
+
+                    <p class="text-muted text-center mt-3">
+                        {{ service.short_description }}
+                    </p>
+
+
+                    <hr class="my-4">
+
+
+                    <!-- About This Treatment -->
+
+                    <h4 class="fw-bold">
+                        About This Treatment
+                    </h4>
+
+                    <p class="text-muted">
+                        {{ service.description }}
+                    </p>
+
+
+                    <!-- Why Choose Professional Dental Care -->
+
+                    <h4 class="fw-bold mt-4">
+                        Why Choose Professional Dental Care?
+                    </h4>
+
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-6">
+
+                            <p>
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Professional evaluation
+                            </p>
+
+                            <p>
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Personalized treatment planning
+                            </p>
+
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <p>
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Patient-focused care
+                            </p>
+
+                            <p>
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Follow-up guidance
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Book Appointment -->
+
+                    <div class="text-center mt-4">
+
+                        <a href="{% url 'appointment' %}"
+                           class="btn btn-primary btn-lg rounded-pill px-5">
+
+                            <i class="bi bi-calendar-check"></i>
+                            Book Appointment
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BACK ================= -->
+
+<section class="pb-5">
+
+    <div class="container text-center">
+
+        <a href="{% url 'services' %}"
+           class="text-decoration-none">
+
+            ← Back to All Services
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,432 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+Contact Us | City Dental Hospital
+{% endblock %}
+
+{% block content %}
+
+
+<section class="bg-primary text-white py-5">
+
+    <div class="container py-4 text-center">
+
+        <h1 class="display-5 fw-bold">
+            Contact City Dental Hospital
+        </h1>
+
+        <h2 class="display-5 fw-bold text-info">
+            Get In Touch With Us
+        </h2>
+
+        <p class="lead mb-0">
+            Quality dental care with a patient-first approach.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Contact Hero -->
+
+<section class="py-5 bg-light">
+    <div class="container">
+
+    <div class="row g-4 justify-content-center">
+
+        <!-- Contact Information -->
+        <div class="col-lg-5">
+
+            <div class="card border-0 shadow-sm h-100 rounded-4">
+
+                <div class="card-body p-4 p-lg-5">
+
+                    <h3 class="fw-bold mb-4">
+                        Contact Information
+                    </h3>
+
+
+                    <!-- Phone -->
+                    <div class="d-flex align-items-start mb-4">
+
+                        <div class="bg-primary bg-opacity-10
+                                    text-primary rounded-circle
+                                    d-flex align-items-center
+                                    justify-content-center me-3"
+                             style="width:50px;height:50px;">
+
+                            <span>📞</span>
+
+                        </div>
+
+                        <div>
+                            <h6 class="fw-bold mb-1">
+                                Phone
+                            </h6>
+
+                            <p class="text-muted mb-0">
+                                +91 XXXXX XXXXX
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- WhatsApp -->
+                    <div class="d-flex align-items-start mb-4">
+
+                        <div class="bg-success bg-opacity-10
+                                    text-success rounded-circle
+                                    d-flex align-items-center
+                                    justify-content-center me-3"
+                             style="width:50px;height:50px;">
+
+                            <span>💬</span>
+
+                        </div>
+
+                        <div>
+                            <h6 class="fw-bold mb-1">
+                                WhatsApp
+                            </h6>
+
+                            <p class="text-muted mb-0">
+                                Chat with our dental team
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Location -->
+                    <div class="d-flex align-items-start mb-4">
+
+                        <div class="bg-danger bg-opacity-10
+                                    text-danger rounded-circle
+                                    d-flex align-items-center
+                                    justify-content-center me-3"
+                             style="width:50px;height:50px;">
+
+                            <span>📍</span>
+
+                        </div>
+
+                        <div>
+                            <h6 class="fw-bold mb-1">
+                                Location
+                            </h6>
+
+                            <p class="text-muted mb-0">
+                                Bawal, Haryana
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Timing -->
+                    <div class="d-flex align-items-start">
+
+                        <div class="bg-warning bg-opacity-10
+                                    text-warning rounded-circle
+                                    d-flex align-items-center
+                                    justify-content-center me-3"
+                             style="width:50px;height:50px;">
+
+                            <span>🕐</span>
+
+                        </div>
+
+                        <div>
+                            <h6 class="fw-bold mb-1">
+                                Opening Hours
+                            </h6>
+
+                            <p class="text-muted mb-0">
+                                Monday - Sunday<br>
+                                9:00 AM - 8:00 PM
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <hr class="my-4">
+
+
+                    <div class="p-3 bg-light rounded-3">
+
+                        <h6 class="fw-bold">
+                            🦷 Need Dental Care?
+                        </h6>
+
+                        <p class="text-muted small mb-0">
+                            Send us your query through WhatsApp and
+                            our team will assist you.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Contact Form -->
+        <div class="col-lg-7">
+
+            <div class="card border-0 shadow-sm rounded-4">
+
+                <div class="card-body p-4 p-lg-5">
+
+                    <div class="mb-4">
+
+                        <h3 class="fw-bold">
+                            Send Us A Message
+                        </h3>
+
+                        <p class="text-muted">
+                            Fill in the details below and send your
+                            enquiry directly to WhatsApp.
+                        </p>
+
+                    </div>
+
+
+                    <form id="whatsappForm">
+
+
+                        <!-- Name -->
+                        <div class="mb-3">
+
+                            <label for="name"
+                                   class="form-label fw-semibold">
+
+                                Your Name
+                                <span class="text-danger">*</span>
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control form-control-lg"
+                                id="name"
+                                placeholder="Enter your name"
+                                required>
+
+                        </div>
+
+
+                        <div class="row">
+
+
+                            <!-- Phone -->
+                            <div class="col-md-6 mb-3">
+
+                                <label for="phone"
+                                       class="form-label fw-semibold">
+
+                                    Phone Number
+                                    <span class="text-danger">*</span>
+
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    class="form-control form-control-lg"
+                                    id="phone"
+                                    placeholder="Enter phone number"
+                                    required>
+
+                            </div>
+
+
+                            <!-- Email -->
+                            <div class="col-md-6 mb-3">
+
+                                <label for="email"
+                                       class="form-label fw-semibold">
+
+                                    Email
+
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control form-control-lg"
+                                    id="email"
+                                    placeholder="Enter email address">
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Service -->
+                        <div class="mb-3">
+
+                            <label for="service"
+                                   class="form-label fw-semibold">
+
+                                Dental Service
+
+                            </label>
+
+                            <select
+                                class="form-select form-select-lg"
+                                id="service">
+
+                                <option value="">
+                                    Select a service
+                                </option>
+
+                                <option value="Dental Checkup">
+                                    Dental Checkup
+                                </option>
+
+                                <option value="Teeth Cleaning">
+                                    Teeth Cleaning
+                                </option>
+
+                                <option value="Teeth Whitening">
+                                    Teeth Whitening
+                                </option>
+
+                                <option value="Root Canal Treatment">
+                                    Root Canal Treatment
+                                </option>
+
+                                <option value="Dental Implant">
+                                    Dental Implant
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Message -->
+                        <div class="mb-4">
+
+                            <label for="message"
+                                   class="form-label fw-semibold">
+
+                                Your Message
+                                <span class="text-danger">*</span>
+
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                id="message"
+                                rows="5"
+                                placeholder="Tell us how we can help you..."
+                                required></textarea>
+
+                        </div>
+
+
+                        <!-- Submit -->
+                        <button
+                            type="submit"
+                            class="btn btn-success btn-lg w-100">
+
+                            💬 Send Message on WhatsApp
+
+                        </button>
+
+
+                        <p class="text-muted small text-center mt-3 mb-0">
+
+                            Your message will open directly in WhatsApp.
+
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- WhatsApp Script -->
+
+<script>
+
+document.getElementById("whatsappForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    // Get form values
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const service =
+        document.getElementById("service").value;
+
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    // Clinic WhatsApp Number
+    // Country code + number
+    // Example: 919876543210
+
+    const whatsappNumber = "919817632068";
+
+
+    // WhatsApp message
+
+    const whatsappMessage =
+`Hello City Dental Hospital,
+
+I would like to make an enquiry.
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email || "Not provided"}
+Dental Service: ${service || "Not specified"}
+
+Message:
+${message}`;
+
+
+    // Create WhatsApp URL
+
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(whatsappMessage);
+
+
+    // Open WhatsApp
+
+    window.open(whatsappURL, "_blank");
+
+});
+
+</script>
+
+{% endblock %}

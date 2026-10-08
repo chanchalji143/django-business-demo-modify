@@ -1,0 +1,540 @@
+
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}
+City Dental Hospital | Best Dental Care in Bawal & Rewari
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="bg-primary text-white py-5">
+
+    <div class="container py-5">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <span class="badge bg-white text-primary px-3 py-2 mb-3">
+                    Trusted Dental Care
+                </span>
+
+                <h1 class="display-4 fw-bold">
+                  {{ clinic.tagline }}
+                </h1>
+
+                <p class="lead mt-3">
+                    Quality dental care and modern treatments
+                    for healthy, confident smiles.
+                </p>
+
+                <div class="mt-4">
+
+                    <a href="{% url 'contact' %}"
+                       class="btn btn-light btn-lg rounded-pill px-4 me-2">
+
+                        <i class="bi bi-calendar-check"></i>
+                        Book Appointment
+
+                    </a>
+
+                    <a href="tel:{{ clinic.phone }}"
+                       class="btn btn-outline-light btn-lg rounded-pill px-4">
+
+                        <i class="bi bi-telephone"></i>
+                        Call Now
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5 mt-5 mt-lg-0">
+
+                <div class="bg-white text-dark rounded-4 shadow p-5 text-center">
+
+                    <i class="bi bi-emoji-smile text-primary display-1"></i>
+
+                    <h3 class="mt-3">
+                        Healthy Smile
+                    </h3>
+
+                    <p class="text-muted">
+                        Professional dental care for
+                        you and your family.
+                    </p>
+
+                    <div class="d-flex justify-content-center gap-2">
+
+                        <span class="badge bg-success">
+                            Experienced
+                        </span>
+
+                        <span class="badge bg-primary">
+                            Trusted
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="row text-center g-4">
+
+            <div class="col-6 col-md-3">
+
+                <h2 class="fw-bold text-primary">
+                    {{ clinic.years_experience }}+
+                </h2>
+
+                <p class="text-muted mb-0">
+                    Years Experience
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <h2 class="fw-bold text-primary">
+                    {{ clinic.patients_count }}K+
+                </h2>
+
+                <p class="text-muted mb-0">
+                    Happy Patients
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <h2 class="fw-bold text-primary">
+                    15+
+                </h2>
+
+                <p class="text-muted mb-0">
+                    Dental Treatments
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-md-3">
+
+                <h2 class="fw-bold text-primary">
+                    {{ clinic.rating }}
+                </h2>
+
+                <p class="text-muted mb-0">
+                    Patient Rating
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<!-- SERVICES -->
+<section class="py-5">
+    <div class="container py-4">
+
+        <div class="text-center mb-5">
+            <span class="text-primary fw-semibold">
+                Our Services
+            </span>
+
+            <h2 class="display-6 fw-bold mt-2">
+                Complete Dental Care
+            </h2>
+
+            <p class="text-muted">
+                Professional dental care for healthy and confident smiles.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            {% for service in services %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card border-0 shadow-sm h-100 p-4">
+
+                    {% if service.image %}
+
+                        <img src="{{ service.image.url }}"
+                             class="img-fluid rounded mb-3"
+                             alt="{{ service.name }}">
+
+                    {% else %}
+
+                        <div class="text-primary mb-3">
+                            <i class="bi bi-stars display-5"></i>
+                        </div>
+
+                    {% endif %}
+
+                    <h4 class="fw-bold mt-2">
+                        {{ service.name }}
+                    </h4>
+
+                    <p class="text-muted">
+                        {{ service.short_description }}
+                    </p>
+
+                    <a href="{% url 'service_detail' service.slug %}"
+                       class="btn btn-outline-primary rounded-pill mt-auto">
+                        View Service
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    No services available at the moment.
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="py-5 bg-light">
+
+    <div class="container py-4">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <div class="bg-white rounded-4 shadow-sm p-5 text-center">
+
+                    <i class="bi bi-hospital text-primary"
+                       style="font-size: 100px;">
+                    </i>
+
+                    <h3 class="mt-3">
+                       {{ clinic.name }}
+                    </h3>
+
+                    <p class="text-muted">
+                        Quality Dental Care
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <span class="text-primary fw-semibold">
+                    ABOUT OUR CLINIC
+                </span>
+
+                <h2 class="fw-bold mt-2">
+                    Complete Care For Your Smile
+                </h2>
+
+                <p class="text-muted mt-3">
+                    {{ clinic.about }}
+                </p>
+
+                <p class="text-muted">
+                    Our goal is to provide comfortable,
+                    professional and patient-focused dental care.
+                </p>
+
+
+                <div class="row mt-4">
+
+                    <div class="col-6">
+
+                        <p>
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Experienced Care
+                        </p>
+
+                        <p>
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Modern Treatment
+                        </p>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <p>
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Patient Friendly
+                        </p>
+
+                        <p>
+                            <i class="bi bi-check-circle-fill text-success"></i>
+                            Family Dentistry
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <a href="{% url 'about' %}"
+                   class="btn btn-primary rounded-pill px-4 mt-3">
+
+                    About Our Clinic
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="py-5">
+
+    <div class="container py-4">
+
+        <div class="text-center mb-5">
+
+            <span class="text-primary fw-semibold">
+                WHY CHOOSE US
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                Dental Care You Can Trust
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="text-center p-4">
+
+                    <i class="bi bi-person-badge text-primary display-5"></i>
+
+                    <h5 class="fw-bold mt-3">
+                        Experienced Team
+                    </h5>
+
+                    <p class="text-muted">
+                        Professional dental care from
+                        experienced professionals.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="text-center p-4">
+
+                    <i class="bi bi-shield-check text-primary display-5"></i>
+
+                    <h5 class="fw-bold mt-3">
+                        Safe & Comfortable
+                    </h5>
+
+                    <p class="text-muted">
+                        Patient comfort and safety
+                        are our priorities.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="text-center p-4">
+
+                    <i class="bi bi-heart text-primary display-5"></i>
+
+                    <h5 class="fw-bold mt-3">
+                        Patient Focused
+                    </h5>
+
+                    <p class="text-muted">
+                        We focus on personalized
+                        care for every patient.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DOCTOR ================= -->
+
+<section class="py-5 bg-light">
+
+    <div class="container py-4">
+
+        <div class="row align-items-center">
+
+            <!-- DOCTOR PHOTO -->
+
+            <div class="col-lg-5 text-center">
+
+                {% if doctor.photo %}
+
+                    <img src="{{ doctor.photo.url }}"
+                         alt="{{ doctor.name }}"
+                         class="rounded-circle shadow-sm"
+                         style="width: 220px; height: 220px; object-fit: cover;">
+
+                {% else %}
+
+                    <div class="bg-white rounded-circle shadow-sm mx-auto
+                                d-flex align-items-center justify-content-center"
+                         style="width: 220px; height: 220px;">
+
+                        <i class="bi bi-person-vcard text-primary"
+                           style="font-size: 100px;">
+                        </i>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- DOCTOR INFORMATION -->
+
+            <div class="col-lg-7 mt-4 mt-lg-0">
+
+                <span class="text-primary fw-semibold">
+                    OUR DENTIST
+                </span>
+
+                <h2 class="fw-bold mt-2">
+                    {{ doctor.name }}
+                </h2>
+
+                <p class="text-muted">
+                    {{ doctor.specialization }}
+                </p>
+
+                {% if doctor.about %}
+
+                    <p class="text-muted">
+                        {{ doctor.about }}
+                    </p>
+
+                {% endif %}
+
+
+                {% if doctor.experience %}
+
+                    <div class="mb-3">
+
+                        <span class="badge bg-primary me-2">
+                            {{ doctor.experience }}+ Years Experience
+                        </span>
+
+                        <span class="badge bg-success">
+                            Patient Care
+                        </span>
+
+                    </div>
+
+                {% endif %}
+
+
+                <a href="{% url 'doctor' %}"
+                   class="btn btn-outline-primary rounded-pill px-4">
+
+                    Meet Our Doctor
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= APPOINTMENT CTA ================= -->
+
+<section id="appointment" class="py-5 bg-primary text-white">
+
+    <div class="container py-4 text-center">
+
+        <h2 class="fw-bold">
+            Ready For A Healthier Smile?
+        </h2>
+
+        <p class="lead">
+            Book your dental consultation today.
+        </p>
+
+        <a href="{% url 'appointment' %}"
+           class="btn btn-light btn-lg rounded-pill px-5 mt-2">
+
+            <i class="bi bi-calendar-check"></i>
+            Book Appointment
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

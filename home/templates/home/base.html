@@ -1,0 +1,336 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{{ clinic.name }}{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+
+    <meta name="description"
+      content="City Dental Hospital provides quality dental care, dental treatments and oral healthcare services in Bawal and Rewari. Book your dental consultation today.">
+
+<meta name="keywords"
+      content="dentist in Bawal, dentist in Rewari, dental clinic, dental treatment, teeth cleaning, root canal, dental implants">
+
+<meta name="author"
+      content="City Dental Hospital">
+
+<meta name="robots"
+      content="index, follow">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+
+    <div class="container">
+
+        <!-- Logo / Brand -->
+       <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+
+    {% if clinic.logo %}
+        <img src="{{ clinic.logo.url }}"
+             alt="{{ clinic.name }}"
+             height="50"
+             class="me-2">
+    {% endif %}
+
+    <span>{{ clinic.name }}</span>
+
+</a>
+
+        <!-- Mobile Menu Button -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <!-- About -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'about' %}">
+                        About
+                    </a>
+                </li>
+
+                <!-- Contact -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'contact' %}">
+                        Contact
+                    </a>
+                </li>
+
+                <!-- Services -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'services' %}">
+                        Services
+                    </a>
+                </li>
+
+                <!-- Doctor -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'doctor' %}">
+                        Doctor
+                    </a>
+                </li>
+
+                <!-- Gallery -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'gallery' %}">
+                        Gallery
+                    </a>
+                </li>
+
+                <!-- Testimonials -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'testimonials' %}">
+                        Testimonials
+                    </a>
+                </li>
+
+                <!-- FAQ -->
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'faq' %}">
+                        FAQ
+                    </a>
+                </li>
+
+                <!-- Book Appointment -->
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-primary"
+                       href="{% url 'appointment' %}">
+                        <i class="bi bi-calendar-check"></i>
+                        Book Appointment
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= MAIN CONTENT ================= -->
+<main>
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-dark text-white mt-5">
+
+    <div class="container py-5">
+
+        <div class="row">
+
+            <!-- Clinic -->
+            <div class="col-md-4 mb-4">
+
+                <h5 class="fw-bold">
+                    {{ clinic.name }}
+                </h5>
+
+                <p class="text-light">
+                   {{ clinic.tagline }}
+                </p>
+
+                <p>
+                    Quality dental care and oral healthcare
+                    services for you and your family.
+                </p>
+
+            </div>
+
+
+            <!-- Quick Links -->
+            <div class="col-md-4 mb-4">
+
+                <h5 class="fw-bold">
+                    Quick Links
+                </h5>
+
+                <ul class="list-unstyled">
+
+                    <li class="mb-2">
+                        <a href="{% url 'home' %}"
+                           class="text-white text-decoration-none">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="{% url 'about' %}"
+                           class="text-white text-decoration-none">
+                            About
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="{% url 'contact' %}"
+                           class="text-white text-decoration-none">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="{% url 'services' %}"
+                           class="text-white text-decoration-none">
+                            Services
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="{% url 'doctor' %}"
+                           class="text-white text-decoration-none">
+                            Doctor
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="{% url 'gallery' %}"
+                           class="text-white text-decoration-none">
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="{% url 'faq' %}"
+                           class="text-white text-decoration-none">
+                            FAQ
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Contact -->
+            <div class="col-md-4 mb-4">
+
+                <h5 class="fw-bold">
+                    Contact Us
+                </h5>
+
+                <p>
+                    <i class="bi bi-geo-alt"></i>
+                    {{ clinic.address }}
+                </p>
+
+                <p>
+                    <i class="bi bi-telephone"></i>
+                    {{ clinic.phone }}
+                </p>
+
+                <p>
+                    <i class="bi bi-envelope"></i>
+                    {{ clinic.email }}
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="mb-0">
+                © 2026 {{ clinic.name }}.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- Floating Contact Buttons -->
+
+<div class="position-fixed bottom-0 end-0 p-3 d-flex flex-column gap-2"
+     style="z-index: 9999;">
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/919817632068"
+       target="_blank"
+       rel="noopener"
+       class="btn btn-success rounded-circle d-flex align-items-center justify-content-center shadow"
+       style="width: 55px; height: 55px;"
+       aria-label="Chat on WhatsApp">
+
+        <i class="bi bi-whatsapp fs-3"></i>
+
+    </a>
+
+
+    <!-- Call -->
+    <a href="tel:+919817632068"
+       class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center shadow"
+       style="width: 55px; height: 55px;"
+       aria-label="Call us">
+
+        <i class="bi bi-telephone-fill fs-4"></i>
+
+    </a>
+
+</div>
+
+
+<!-- ================= BOOTSTRAP JS ================= -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

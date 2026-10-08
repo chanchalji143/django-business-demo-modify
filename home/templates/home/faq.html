@@ -1,0 +1,95 @@
+{% extends 'home/base.html' %}
+
+{% block title %}
+FAQ | City Dental Hospital
+{% endblock %}
+
+
+{% block content %}
+
+<section class="bg-primary text-white py-5">
+
+    <div class="container py-4 text-center">
+
+        <h1 class="display-5 fw-bold">
+            Frequently Asked Questions
+        </h1>
+
+        <p class="lead mb-0">
+            Common questions about dental care and appointments.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9">
+
+                <div class="accordion" id="faqAccordion">
+
+                    {% for faq in faqs %}
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header"
+                            id="heading{{ forloop.counter }}">
+
+                            <button
+                                class="accordion-button {% if not forloop.first %}collapsed{% endif %}"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq{{ forloop.counter }}"
+                                aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+                                aria-controls="faq{{ forloop.counter }}">
+
+                                {{ faq.question }}
+
+                            </button>
+
+                        </h2>
+
+                        <div id="faq{{ forloop.counter }}"
+                             class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+                             aria-labelledby="heading{{ forloop.counter }}"
+                             data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                {{ faq.answer }}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% empty %}
+
+                    <div class="text-center py-4">
+
+                        <p class="text-muted mb-0">
+                            No FAQs available at the moment.
+                        </p>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
